@@ -1,0 +1,329 @@
+﻿@page "{userID}/{error?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    .leftTri {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 14.5%, 58.05% 8.42%);
+            background-color: #ffffff;
+            width: 100%;
+        }
+
+    .inputs {
+        height: 40px;
+        width: 200px;
+        margin-bottom: 15px;
+    }
+
+    .myButton:hover{
+        border: 3px solid;
+        color: #FF6C6C;
+        
+    }
+</style>
+
+<script type="text/javascript">
+    window.onload = function {
+        window.alert(@(Model.Error));
+        alert("asdfasdf");
+    };
+</script>
+
+
+<div>
+    <img class="display-4" style="margin-top: 20px; margin-left: 20px; height: 55px; width: 200px" src=~/Images/FeedMamaLogo-PrimaryWhite.png/>
+</div>
+
+<form method="POST">
+    <div class="text-center" style="margin-top: 50px; margin-left: 15%; margin-right: 15%;">
+    <h1 class="display-4" style="margin-bottom: 50px">Welcome to FeedMama!</h1>
+    <h4 style="margin-bottom: 30px;">Your patient, @Model.FirstName @Model.LastName, has applied for our program that feeds expecting mothers at no cost! To complete the next steps, we will need you to verify that she is pregnant.</h4>
+    <h4 style="margin-bottom: 30px;">Please enter your information:</h4>
+
+    <div style="display: inline-block; margin-bottom: 15px;">
+        
+    </div>
+    <div style="display: inline-block;">
+        <input class="inputs" placeholder="First Name" required asp-for="@Model.Physician.FirstName"/>
+        <input class="inputs" placeholder="Middle Initial" required asp-for="@Model.Physician.MiddleInitial"/>
+        <input class="inputs" placeholder="Last Name" required asp-for="@Model.Physician.LastName"/>
+        <select class="inputs" asp-for="@Model.Physician.State" required>
+            <option>State of Practice</option>
+            <option value="Alabama">Alabama</option>
+            <option value="Alaska">Alaska</option>
+            <option value="Arizona">Arizona</option>
+            <option value="Arkansas">Arkansas</option>
+            <option value="California">California</option>
+            <option value="Colorado">Colorado</option>
+            <option value="Connecticut">Connecticut</option>
+            <option value="Delaware">Delaware</option>
+            <option value="District Of Columbia">District Of Columbia</option>
+            <option value="Florida">Florida</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Hawaii">Hawaii</option>
+            <option value="Idaho">Idaho</option>
+            <option value="Illinois">Illinois</option>
+            <option value="Indiana">Indiana</option>
+            <option value="Iowa">Iowa</option>
+            <option value="Kansas">Kansas</option>
+            <option value="Kentucky">Kentucky</option>
+            <option value="Louisiana">Louisiana</option>
+            <option value="Maine">Maine</option>
+            <option value="Maryland">Maryland</option>
+            <option value="Massachusetts">Massachusetts</option>
+            <option value="Michigan">Michigan</option>
+            <option value="Minnesota">Minnesota</option>
+            <option value="Mississippi">Mississippi</option>
+            <option value="Missouri">Missouri</option>
+            <option value="Montana">Montana</option>
+            <option value="Nebraska">Nebraska</option>
+            <option value="Nevada">Nevada</option>
+            <option value="New Hampshire">New Hampshire</option>
+            <option value="New Jersey">New Jersey</option>
+            <option value="New Mexico">New Mexico</option>
+            <option value="New York">New York</option>
+            <option value="North Carolina">North Carolina</option>
+            <option value="North Dakota">North Dakota</option>
+            <option value="Ohio">Ohio</option>
+            <option value="Oklahoma">Oklahoma</option>
+            <option value="Oregon">Oregon</option>
+            <option value="Pennsylvania">Pennsylvania</option>
+            <option value="Rhode Island">Rhode Island</option>
+            <option value="South Carolina">South Carolina</option>
+            <option value="South Dakota">South Dakota</option>
+            <option value="Tennessee">Tennessee</option>
+            <option value="Texas">Texas</option>
+            <option value="Utah">Utah</option>
+            <option value="Vermont">Vermont</option>
+            <option value="Virginia">Virginia</option>
+            <option value="Washington">Washington</option>
+            <option value="West Virginia">West Virginia</option>
+            <option value="Wisconsin">Wisconsin</option>
+            <option value="Wyoming">Wyoming</option>
+        </select>
+
+
+        <input class="inputs" placeholder="City/Town of Practice" required asp-for="@Model.Physician.City"/>
+        <select class="inputs" required asp-for="@Model.Physician.Type">
+            <option>Select Specialty/Subspecialty</option>
+            <option value="Addiction Medicine">Addiction Medicine</option>
+            <option value="Addiction Psychiatry">Addiction Psychiatry</option>
+            <option value="Adolescent Medicine">Adolescent Medicine</option>
+            <option value="Adult Cardiac Anesthesiology">Adult Cardiac Anesthesiology</option>
+            <option value="Adult Congenital Heart Disease">Adult Congenital Heart Disease</option>
+            <option value="Advanced Heart Failure and Transplant Cardiology">Advanced Heart Failure and Transplant Cardiology</option>
+            <option value="Aerospace Medicine">Aerospace Medicine</option>
+            <option value="Allergy & Immunology">Allergy & Immunology</option>
+            <option value="Anatomic Pathology">Anatomic Pathology</option>
+            <option value="Anatomic Pathology & Clinical Pathology">Anatomic Pathology & Clinical Pathology</option>
+            <option value="Anesthesiology">Anesthesiology</option>
+            <option value="Anesthesiology Critical Care Medicine">Anesthesiology Critical Care Medicine</option>
+            <option value="Blood Banking">Blood Banking</option>
+            <option value="Blood Banking/Transfusion Medicine">Blood Banking/Transfusion Medicine</option>
+            <option value="Brain Injury Medicine">Brain Injury Medicine</option>
+            <option value="Cardiac Electrophysiology">Cardiac Electrophysiology</option>
+            <option value="Cardiovascular Disease">Cardiovascular Disease</option>
+            <option value="Chemical Pathology">Chemical Pathology</option>
+            <option value="Child & Adolescent Psychiatry">Child & Adolescent Psychiatry</option>
+            <option value="Child Abuse Pediatrics">Child Abuse Pediatrics</option>
+            <option value="Child Psychiatry">Child Psychiatry</option>
+            <option value="Clinical & Laboratory Dermatological Immunology">Clinical & Laboratory Dermatological Immunology</option>
+            <option value="Clinical & Laboratory Immunology">Clinical & Laboratory Immunology</option>
+            <option value="Clinical Biochemical Genetics">Clinical Biochemical Genetics</option>
+            <option value="Clinical Biochemical/Molecular Genetics">Clinical Biochemical/Molecular Genetics</option>
+            <option value="Clinical Cardiac Electrophysiology">Clinical Cardiac Electrophysiology</option>
+            <option value="Clinical Cytogenetics">Clinical Cytogenetics</option>
+            <option value="Clinical Cytogenetics and Genomics">Clinical Cytogenetics and Genomics</option>
+            <option value="Clinical Genetics">Clinical Genetics</option>
+            <option value="Clinical Genetics and Genomics">Clinical Genetics and Genomics</option>
+            <option value="Clinical Informatics">Clinical Informatics</option>
+            <option value="Clinical Molecular Genetics">Clinical Molecular Genetics</option>
+            <option value="Clinical Molecular Genetics and Genomics">Clinical Molecular Genetics and Genomics</option>
+            <option value="Clinical Neurophysiology">Clinical Neurophysiology</option>
+            <option value="Clinical Pathology">Clinical Pathology</option>
+            <option value="Colon & Rectal Surgery">Colon & Rectal Surgery</option>
+            <option value="Complex Family Planning">Complex Family Planning</option>
+            <option value="5146">Complex General Surgical Oncology</option>
+            <option value="5043">Complex Pediatric Otolaryngology</option>
+            <option value="5131">Congenital Cardiac Surgery</option>
+            <option value="5108,5166">Consultation-Liaison Psychiatry</option>
+            <option value="5002,5021,5037">Critical Care Medicine</option>
+            <option value="5048">Cytopathology</option>
+            <option value="5005">Dermatological Immunology/Diagnostic and Laboratory Immunology</option>
+            <option value="1001">Dermatology</option>
+            <option value="5006,5049">Dermatopathology</option>
+            <option value="5062">Developmental-Behavioral Pediatrics</option>
+            <option value="1026">Diagnostic & Medical Nuclear Physics</option>
+            <option value="5001,5020,5103">Diagnostic Laboratory Immunology</option>
+            <option value="1027">Diagnostic Medical Physics</option>
+            <option value="1015">Diagnostic Radiology</option>
+            <option value="1016">Diagnostic Radiology with Special Competence in Nuclear Radiology</option>
+            <option value="1017">Diagnostic Roentgenology</option>
+            <option value="5140">Emergency Medical Services</option>
+            <option value="1003">Emergency Medicine</option>
+            <option value="5022,5023">Endocrinology and Metabolism</option>
+            <option value="5022,5023">Endocrinology, Diabetes and Metabolism</option>
+            <option value="5141">Epilepsy</option>
+            <option value="Family Medicine">Family Medicine</option>
+            <option value="Female Pelvic Medicine and Reconstructive Surgery">Female Pelvic Medicine and Reconstructive Surgery</option>
+            <option value="5050,5134">Forensic Pathology</option>
+            <option value="5089">Forensic Psychiatry</option>
+            <option value="5024">Gastroenterology</option>
+            <option value="1047">General Preventive Medicine</option>
+            <option value="5012,5025">Geriatric Medicine</option>
+            <option value="5090">Geriatric Psychiatry</option>
+            <option value="5038">Gynecologic Oncology</option>
+            <option value="5026,5051,5135,5159">Hematology</option>
+            <option value="5026,5051,5135,5159">Hematopathology</option>
+            <option value="5116,5117,5119,5120,5121,5122,5123,5124,5125,5129,5154">Hospice and Palliative Medicine</option>
+            <option value="5052">Immunopathology</option>
+            <option value="5027">Infectious Disease</option>
+            <option value="1040">Internal Medicine</option>
+            <option value="5151">Internal Medicine - Critical Care Medicine</option>
+            <option value="5028">Interventional Cardiology</option>
+            <option value="1070">Interventional Radiology and Diagnostic Radiology</option>
+            <option value="1074">Laboratory Genetics and Genomics</option>
+            <option value="Maternal-Fetal Medicine">Maternal-Fetal Medicine</option>
+            <option value="5130">Medical Biochemical Genetics</option>
+            <option value="5053,5136">Medical Microbiology</option>
+            <option value="Medical Oncology">Medical Oncology</option>
+            <option value="1021">Medical Physics</option>
+            <option value="5008,5063,5082">Medical Toxicology</option>
+            <option value="5171">Micrographic Dermatologic Surgery</option>
+            <option value="5034,5054,5137">Molecular Genetic Pathology</option>
+            <option value="Neonatal-Perinatal Medicine">Neonatal-Perinatal Medicine</option>
+            <option value="5030">Nephrology</option>
+            <option value="5167,5168,5169,5170,5173">Neurocritical Care</option>
+            <option value="5065,5104">Neurodevelopmental Disabilities</option>
+            <option value="1053">Neurological Surgery</option>
+            <option value="1012">Neurology</option>
+            <option value="1013">Neurology with Special Qualification in Child Neurology</option>
+            <option value="5111,5132">Neuromuscular Medicine</option>
+            <option value="5055">Neuropathology</option>
+            <option value="5093">Neuroradiology</option>
+            <option value="5042">Neurotology</option>
+            <option value="1028">Nuclear Medical Physics</option>
+            <option value="1011">Nuclear Medicine</option>
+            <option value="Obstetrics & Gynecology">Obstetrics & Gynecology</option>
+            <option value="1048">Occupational Medicine</option>
+            <option value="1014">Ophthalmology</option>
+            <option value="5106">Orthopaedic Sports Medicine</option>
+            <option value="1038">Orthopaedic Surgery</option>
+            <option value="1044">Otolaryngology - Head and Neck Surgery</option>
+            <option value="Physician">Physician</option>
+            <option value="5003,5078,5092,5155,5156,5157,5160">Pain Medicine</option>
+            <option value="1008,1067">Pathology - Anatomic</option>
+            <option value="1007,1066">Pathology - Anatomic/Pathology - Clinical</option>
+            <option value="5047,5133">Pathology - Chemical</option>
+            <option value="1009,1068">Pathology - Clinical</option>
+            <option value="5050,5134">Pathology - Forensic</option>
+            <option value="5026,5051,5135,5159">Pathology - Hematology</option>
+            <option value="5053,5136">Pathology - Medical Microbiology</option>
+            <option value="5034,5054,5137">Pathology - Molecular Genetic</option>
+            <option value="5056,5138">Pathology - Pediatric</option>
+            <option value="1064">Pathology Recertification</option>
+            <option value="5143">Pediatric Anesthesiology</option>
+            <option value="5066">Pediatric Cardiology</option>
+            <option value="5067">Pediatric Critical Care Medicine</option>
+            <option value="5007">Pediatric Dermatology</option>
+            <option value="5009,5068">Pediatric Emergency Medicine</option>
+            <option value="5069">Pediatric Endocrinology</option>
+            <option value="5070">Pediatric Gastroenterology</option>
+            <option value="5071">Pediatric Hematology-Oncology</option>
+            <option value="5161">Pediatric Hospital Medicine</option>
+            <option value="5072">Pediatric Infectious Diseases</option>
+            <option value="5073">Pediatric Nephrology</option>
+            <option value="5056,5138">Pediatric Pathology</option>
+            <option value="5074">Pediatric Pulmonology</option>
+            <option value="5095">Pediatric Radiology</option>
+            <option value="5079">Pediatric Rehabilitation Medicine</option>
+            <option value="5075">Pediatric Rheumatology</option>
+            <option value="5097">Pediatric Surgery</option>
+            <option value="5110">Pediatric Transplant Hepatology</option>
+            <option value="5127">Pediatric Urology</option>
+            <option value="1010">Pediatrics</option>
+            <option value="1059">Ph.D. Medical Genetics</option>
+            <option value="1039">Physical Medicine & Rehabilitation</option>
+            <option value="1045">Plastic Surgery</option>
+            <option value="5044,5081">Plastic Surgery within the Head and Neck</option>
+            <option value="1006">Psychiatry</option>
+            <option value="5108,5166">Psychosomatic Medicine</option>
+            <option value="1049">Public Health</option>
+            <option value="1050">Public Health & General Preventive Medicine</option>
+            <option value="5031">Pulmonary Disease</option>
+            <option value="1019">Radiation Oncology</option>
+            <option value="1034">Radiation Oncology Recertification</option>
+            <option value="5057">Radioisotopic Pathology</option>
+            <option value="1020">Radiology - General</option>
+            <option value="1022">Radium Therapy</option>
+            <option value="5040">Reproductive Endocrinology/Infertility</option>
+            <option value="5032">Rheumatology</option>
+            <option value="1023">Roentgen & Gamma Physics</option>
+            <option value="1024">Roentgenology</option>
+            <option value="5112,5113,5114,5115,5118,5142">Sleep Medicine</option>
+            <option value="5077">Spinal Cord Injury Medicine</option>
+            <option value="5010,5013,5033,5076,5128">Sports Medicine</option>
+            <option value="1037">Surgery</option>
+            <option value="5041,5080,5099">Surgery of the Hand</option>
+            <option value="5098">Surgical Critical Care</option>
+            <option value="1030">Therapeutic & Diagnostic Radiologic Physics</option>
+            <option value="1031">Therapeutic & Medical Nuclear Physics</option>
+            <option value="1032">Therapeutic Medical Physics</option>
+            <option value="1033">Therapeutic Radiology</option>
+            <option value="1060">Therapeutic Roentgenology</option>
+            <option value="1000,1069">Thoracic Surgery</option>
+            <option value="1000,1069">Thoracic and Cardiac Surgery</option>
+            <option value="5109">Transplant Hepatology</option>
+            <option value="5011,5083,5084">Undersea & Hyperbaric Medicine</option>
+            <option value="5011,5083,5084">Undersea Medicine</option>
+            <option value="1002">Urology</option>
+            <option value="5096">Vascular & Interventional Radiology</option>
+            <option value="5107">Vascular Neurology</option>
+            <option value="1065">Vascular Surgery</option>                      
+        </select>
+
+        <input class="inputs" placeholder="NPI Number" required asp-for="@Model.License"/>
+        <select class="inputs" asp-for="@Model.GenderSelection" required>
+            <option>Pick a Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Prefer Not To Say</option>
+        </select>
+    </div>
+
+    <h6 style="margin-bottom: 30px; font-style:oblique">Notice: Your personal information will NOT be recorded - this is simply a way for us to confirm our system is not abused for the sake of recieving free meals.</h6>
+
+    <div style="display: inline-block;">
+        <h4 style="margin-bottom: 20px;">Is @Model.FirstName @Model.LastName, to the best of your knowledge, expecting a child?</h4>
+        <select class="inputs" asp-for="@Model.YNSelection" required>
+            <option>Select an Option</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Not Sure">Not Sure</option>
+        </select>  
+    </div>
+
+    
+
+    </div>
+    <div class="text-center">
+        <input class="myButton" type="submit" value="Verify my Patient" style="margin-top: 30px; height: 40px; width: 200px; position: center; font-size: 20px"/>
+    </div>
+
+    <input type="hidden" value="@Model.VerificationAttempts" name="VerificationAttempts"/> 
+    <input type="hidden" value="@Model.Verified" name="Verified"/> 
+    <input type="hidden" value="@Model.UserID" name="UserID"/> 
+
+</form>
+
+@if (Model.Error != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@Model.Error");
+            };
+        </script>
+    }
+
+
